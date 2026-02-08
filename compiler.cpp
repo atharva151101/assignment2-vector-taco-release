@@ -17,12 +17,6 @@ int main(const int argc, const char** argv) {
     Array D{"D"};
 
     Expr e = A(i);
-    FormatMap formats = {
-        {"A", {Format::Compressed}},
-        {"B", {Format::Compressed}},
-        {"C", {Format::Compressed}},
-        {"D", {Format::Compressed}}
-    };
 
     std::cout << e << "\n";
 
@@ -31,7 +25,6 @@ int main(const int argc, const char** argv) {
         std::cout << a << "\n";
         auto stmt = lower(a);
         std::cout << stmt << "\n";
-        std::cout << lower(stmt, formats) << "\n";
     }
 
     e = e * B(i);
@@ -41,7 +34,6 @@ int main(const int argc, const char** argv) {
         std::cout << a << "\n";
         auto stmt = lower(a);
         std::cout << stmt << "\n";
-        std::cout << lower(stmt, formats) << "\n";
     }
 
     return 0;
