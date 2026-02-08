@@ -13,7 +13,14 @@
 // Forward declare IRVisitor for SetExprNode accept method.
 struct IRVisitor;
 
+enum class SetExprKind {
+    ArrayDim,
+    Union,
+    Intersection
+};
+
 struct SetExprNode {
+    SetExprKind kind;
     virtual void accept(IRVisitor *v) const = 0;
     SetExprNode() {}
     virtual ~SetExprNode() = default;
